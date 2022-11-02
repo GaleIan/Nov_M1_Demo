@@ -22,5 +22,7 @@ jobs:
     - run: echo 'Hello World!'
     - run: $pwd
     - run: echo 'Running on ${{runner.os}}' # Our runner has inbuilt variables we can access
+    - run: echo "${{toJSON(github.event)}}"
+    - run: echo ${{ github.event.workflow_run.head_commit.message }}
     
 
