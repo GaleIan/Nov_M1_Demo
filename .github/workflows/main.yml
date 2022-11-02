@@ -35,5 +35,8 @@ jobs:
     - run:  echo '${{ github.repository }}'
     - run: ls -a
     - run: python Hello.py
+    - run: mkdir Hellodir
+    - run: ls -ltr
+    
     
  
