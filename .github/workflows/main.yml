@@ -60,6 +60,9 @@ jobs:
     - run: ls -ltr
     
   print_job:
+    env: 
+      LOCAL_VAR: "Hi I'm a local"
+      
     runs-on: ubuntu-latest
     steps:
     - run: echo $GLOBAL_VAR
