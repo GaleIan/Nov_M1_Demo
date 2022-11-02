@@ -67,5 +67,5 @@ jobs:
     steps:
     - run: echo $GLOBAL_VAR
     - run: echo $LOCAL_VAR
-    - run: "${{secrets.SECRET_TEXT}}"
+    - run: echo "${{secrets.SECRET_TEXT}}"
 
