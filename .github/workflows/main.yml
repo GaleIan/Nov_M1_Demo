@@ -1,4 +1,4 @@
- This is an IDE for creating a workflow with .yaml
+# This is an IDE for creating a workflow with .yaml
 # Workflows are processes or commands you want to run when a certain thing happens
 
 # When code is pushed to this repo (on this branch) Print out to the console "Code Pushed"
@@ -20,7 +20,7 @@ jobs:
     steps: 
     # echo outputs some text, by default this is to the terminal but can also add text to a file
     - run: echo 'Hello World!'
-    - run: pwd
+    - run: $pwd
     - run: echo 'Running on ${{runner.os}}' # Our runner has inbuilt variables we can access
     
 
