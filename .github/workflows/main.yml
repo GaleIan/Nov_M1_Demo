@@ -7,11 +7,15 @@
 
 name: GitActions Demo
 
+env: 
+  GLOBAL_VAR: "Hi I'm a global"
+
 # Do these actions when we push to this branch
 on: [push]
 
 # What jobs you wish the server to do
 jobs:
+
   # What is the name of the job
   basic_action:
     # What type of instance is this job running on, linux distribution 
@@ -26,6 +30,9 @@ jobs:
     
   # clone repsitory
   clone_job: 
+    env: 
+      LOCAL_VAR: "Hi I'm a local"
+      
     runs-on: ubuntu-latest
     
     steps:
@@ -38,5 +45,24 @@ jobs:
     - run: mkdir Hellodir
     - run: ls -ltr
     
+ #clone repsitory
+  clone_job_2: 
+    runs-on: ubuntu-latest
     
- 
+    steps:
+    - run: ls -a
+    - name: checkout
+      uses: actions/checkout@v2.5.0
+    - run:  echo '${{ github.repository }}'
+    - run: ls -a
+    - run: rm Hello.py
+    - run: mkdir Hellodir
+    - run: ls -ltr
+    
+  print_job:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo $GLOBAL_VAR
+    - run: echo $LOCAL_VAR
+    - run: "${{secrets.SECRET_TEXT}}"
+
