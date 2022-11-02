@@ -23,6 +23,17 @@ jobs:
     - run: $pwd
     - run: echo 'Running on ${{runner.os}}' # Our runner has inbuilt variables we can access
     - run: echo "${{toJSON(github.event)}}"
-    - run: echo ${{ github.event.workflow_run.head_commit.message }}
     
-
+  # clone repsitory
+  clone_job: 
+    runs-on: ubuntu-latest
+    
+    steps:
+    - run: ls -a
+    - name: checkout
+      uses: actions/checkout@v2.5.0
+    - run:  echo '${{ github.repository }}'
+    - run: ls -a
+    
+    
+ 
